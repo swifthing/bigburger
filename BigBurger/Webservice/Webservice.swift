@@ -24,12 +24,12 @@ class Webservice<T: Codable>: ObservableObject {
             .receive(on: DispatchQueue.main)
             .map {$0.data}
             .decode(type: T.self, decoder: JSONDecoder())
-            .sink { completed in
+            .sink { [weak self] completed in
                 switch completed {
-                    case .finished:
-                        break
                     case .failure(let error):
+                        self?.data = nil
                         print(error)
+                    default: break
                 }
             } receiveValue: { [weak self] value in
                 self?.data = value

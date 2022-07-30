@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class BurgerListViewModel: ObservableObject {
-    @Published var data: [BigBurgerModel] = []
+    @Published var data: [BigBurgerModel]?
     var webservice: Webservice<[BigBurgerModel]>
     var cancellable: AnyCancellable?
 
@@ -17,10 +17,18 @@ class BurgerListViewModel: ObservableObject {
         let request = WSEndpoint.burgerList.request
         webservice = Webservice(request)
         cancellable = webservice.$data
+            .dropFirst()
             .sink { [weak self] model in
                 if let model = model {
                     self?.data = model
+                } else {
+                    self?.data = []
                 }
             }
+    }
+
+    func refresh () {
+        data = nil
+        webservice.fetch()
     }
 }

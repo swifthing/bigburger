@@ -14,29 +14,56 @@ struct BurgerListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.data.isEmpty {
-                    Text("Chargement en cours ...")
-                } else {
-                    List (viewModel.data, id:\.ref) { burger in
-                        HStack {
-                            Text(burger.title)
-                                .bold()
-                            Spacer()
-                            AsyncImage(
-                                url: URL(string: burger.thumbnail),
-                                content: { image in
-                                    image.resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 60, maxHeight: 60)
-                                },
-                                placeholder: {
-                                    ProgressView()
+                if let burgers = viewModel.data {
+                    if burgers.isEmpty {
+                        Text("Une erreur s'est produite. Veuillez recharger la page.")
+                    } else {
+                        List (burgers, id:\.ref) { burger in
+                            HStack {
+                                VStack {
+                                    Text(burger.title)
+                                        .bold()
+                                    Text(burger.description)
+                                        .italic()
+                                        .multilineTextAlignment(.leading)
+                                        .lineLimit(2)
                                 }
-                            )
+                                Spacer()
+                                AsyncImage(url: URL(string: burger.thumbnail)) { phase in
+                                    switch phase {
+                                        case .empty:
+                                            ProgressView()
+                                        case .success(let image):
+                                            image.resizable()
+                                                .clipShape(Circle())
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 60, height: 60)
+                                        default:
+                                            Image(systemName: "exclamationmark.triangle")
+                                                .clipShape(Circle())
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 60, height: 60)
+                                    }
+                                }
+                            }
                         }
                     }
+                } else {
+                    Text("Chargement en cours ...")
                 }
-            }.navigationTitle("Big Burger")
+            }
+            .navigationTitle("Big Burger")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        viewModel.refresh()
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
+                            .tint(.black)
+                    }
+                }
+            }
         }
+
     }
 }
