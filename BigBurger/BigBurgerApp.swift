@@ -11,7 +11,7 @@ import SwiftUI
 struct BigBurgerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BurgerListView()
         }
     }
 }

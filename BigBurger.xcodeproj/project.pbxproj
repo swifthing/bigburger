@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		E9C435F128940AAD00D2032A /* BigBurgerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C435F028940AAD00D2032A /* BigBurgerApp.swift */; };
-		E9C435F328940AAD00D2032A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C435F228940AAD00D2032A /* ContentView.swift */; };
+		E9C435F328940AAD00D2032A /* BurgerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C435F228940AAD00D2032A /* BurgerListView.swift */; };
 		E9C435F528940AAE00D2032A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C435F428940AAE00D2032A /* Assets.xcassets */; };
 		E9C435F828940AAE00D2032A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C435F728940AAE00D2032A /* Preview Assets.xcassets */; };
+		E9C43602289418DC00D2032A /* WSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C43601289418DC00D2032A /* WSEndpoint.swift */; };
+		E9C436042894193A00D2032A /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C436032894193A00D2032A /* Webservice.swift */; };
+		E9C436062894195700D2032A /* BigBurgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C436052894195700D2032A /* BigBurgerModel.swift */; };
+		E9C436082894196700D2032A /* BurgerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C436072894196700D2032A /* BurgerListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E9C435ED28940AAD00D2032A /* BigBurger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigBurger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C435F028940AAD00D2032A /* BigBurgerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBurgerApp.swift; sourceTree = "<group>"; };
-		E9C435F228940AAD00D2032A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E9C435F228940AAD00D2032A /* BurgerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerListView.swift; sourceTree = "<group>"; };
 		E9C435F428940AAE00D2032A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9C435F728940AAE00D2032A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E9C43601289418DC00D2032A /* WSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSEndpoint.swift; sourceTree = "<group>"; };
+		E9C436032894193A00D2032A /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		E9C436052894195700D2032A /* BigBurgerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBurgerModel.swift; sourceTree = "<group>"; };
+		E9C436072894196700D2032A /* BurgerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +59,11 @@
 		E9C435EF28940AAD00D2032A /* BigBurger */ = {
 			isa = PBXGroup;
 			children = (
+				E9C436092894196F00D2032A /* View */,
+				E9C43600289418AC00D2032A /* Webservice */,
+				E9C435FF289418A800D2032A /* Model */,
+				E9C435FE2894189D00D2032A /* ViewModel */,
 				E9C435F028940AAD00D2032A /* BigBurgerApp.swift */,
-				E9C435F228940AAD00D2032A /* ContentView.swift */,
 				E9C435F428940AAE00D2032A /* Assets.xcassets */,
 				E9C435F628940AAE00D2032A /* Preview Content */,
 			);
@@ -65,6 +76,39 @@
 				E9C435F728940AAE00D2032A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E9C435FE2894189D00D2032A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9C436072894196700D2032A /* BurgerListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9C435FF289418A800D2032A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9C436052894195700D2032A /* BigBurgerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9C43600289418AC00D2032A /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				E9C43601289418DC00D2032A /* WSEndpoint.swift */,
+				E9C436032894193A00D2032A /* Webservice.swift */,
+			);
+			path = Webservice;
+			sourceTree = "<group>";
+		};
+		E9C436092894196F00D2032A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9C435F228940AAD00D2032A /* BurgerListView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9C435F328940AAD00D2032A /* ContentView.swift in Sources */,
+				E9C43602289418DC00D2032A /* WSEndpoint.swift in Sources */,
+				E9C435F328940AAD00D2032A /* BurgerListView.swift in Sources */,
+				E9C436062894195700D2032A /* BigBurgerModel.swift in Sources */,
+				E9C436082894196700D2032A /* BurgerListViewModel.swift in Sources */,
+				E9C436042894193A00D2032A /* Webservice.swift in Sources */,
 				E9C435F128940AAD00D2032A /* BigBurgerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
