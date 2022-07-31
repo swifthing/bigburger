@@ -15,6 +15,12 @@
 		E9C436042894193A00D2032A /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C436032894193A00D2032A /* Webservice.swift */; };
 		E9C436062894195700D2032A /* BigBurgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C436052894195700D2032A /* BigBurgerModel.swift */; };
 		E9C436082894196700D2032A /* BurgerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C436072894196700D2032A /* BurgerListViewModel.swift */; };
+		E9C4360C2895451400D2032A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C4360B2895451300D2032A /* ErrorView.swift */; };
+		E9C4360E2895453000D2032A /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C4360D2895453000D2032A /* ImageView.swift */; };
+		E9C436102895455200D2032A /* LoadingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C4360F2895455200D2032A /* LoadingTextView.swift */; };
+		E9C436122895523000D2032A /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C436112895523000D2032A /* CartView.swift */; };
+		E9C436142896EFFF00D2032A /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C436132896EFFF00D2032A /* CartModel.swift */; };
+		E9C436172896F03100D2032A /* CartObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C436162896F03100D2032A /* CartObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,12 @@
 		E9C436032894193A00D2032A /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		E9C436052894195700D2032A /* BigBurgerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBurgerModel.swift; sourceTree = "<group>"; };
 		E9C436072894196700D2032A /* BurgerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerListViewModel.swift; sourceTree = "<group>"; };
+		E9C4360B2895451300D2032A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E9C4360D2895453000D2032A /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		E9C4360F2895455200D2032A /* LoadingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTextView.swift; sourceTree = "<group>"; };
+		E9C436112895523000D2032A /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		E9C436132896EFFF00D2032A /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		E9C436162896F03100D2032A /* CartObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,7 @@
 		E9C435EF28940AAD00D2032A /* BigBurger */ = {
 			isa = PBXGroup;
 			children = (
+				E9C436152896F01F00D2032A /* Object */,
 				E9C436092894196F00D2032A /* View */,
 				E9C43600289418AC00D2032A /* Webservice */,
 				E9C435FF289418A800D2032A /* Model */,
@@ -90,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E9C436052894195700D2032A /* BigBurgerModel.swift */,
+				E9C436132896EFFF00D2032A /* CartModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -106,9 +120,29 @@
 		E9C436092894196F00D2032A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E9C4360A2895450400D2032A /* Fragment */,
 				E9C435F228940AAD00D2032A /* BurgerListView.swift */,
+				E9C436112895523000D2032A /* CartView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E9C4360A2895450400D2032A /* Fragment */ = {
+			isa = PBXGroup;
+			children = (
+				E9C4360B2895451300D2032A /* ErrorView.swift */,
+				E9C4360D2895453000D2032A /* ImageView.swift */,
+				E9C4360F2895455200D2032A /* LoadingTextView.swift */,
+			);
+			path = Fragment;
+			sourceTree = "<group>";
+		};
+		E9C436152896F01F00D2032A /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				E9C436162896F03100D2032A /* CartObject.swift */,
+			);
+			path = Object;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,12 +215,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C436172896F03100D2032A /* CartObject.swift in Sources */,
+				E9C436122895523000D2032A /* CartView.swift in Sources */,
+				E9C4360E2895453000D2032A /* ImageView.swift in Sources */,
 				E9C43602289418DC00D2032A /* WSEndpoint.swift in Sources */,
 				E9C435F328940AAD00D2032A /* BurgerListView.swift in Sources */,
+				E9C436142896EFFF00D2032A /* CartModel.swift in Sources */,
 				E9C436062894195700D2032A /* BigBurgerModel.swift in Sources */,
 				E9C436082894196700D2032A /* BurgerListViewModel.swift in Sources */,
 				E9C436042894193A00D2032A /* Webservice.swift in Sources */,
+				E9C4360C2895451400D2032A /* ErrorView.swift in Sources */,
 				E9C435F128940AAD00D2032A /* BigBurgerApp.swift in Sources */,
+				E9C436102895455200D2032A /* LoadingTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

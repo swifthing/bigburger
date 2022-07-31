@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BurgerListView: View {
+struct HomeView: View {
 
     @ObservedObject var viewModel: BurgerListViewModel = BurgerListViewModel()
 
@@ -16,40 +16,15 @@ struct BurgerListView: View {
             VStack {
                 if let burgers = viewModel.data {
                     if burgers.isEmpty {
-                        Text("Une erreur s'est produite. Veuillez recharger la page.")
+                        ErrorView(
+                            withSystemImage: "exclamationmark.triangle",
+                            withText: "Une erreur s'est produite. Veuillez recharger la page."
+                        )
                     } else {
-                        List (burgers, id:\.ref) { burger in
-                            HStack {
-                                VStack {
-                                    Text(burger.title)
-                                        .bold()
-                                    Text(burger.description)
-                                        .italic()
-                                        .multilineTextAlignment(.leading)
-                                        .lineLimit(2)
-                                }
-                                Spacer()
-                                AsyncImage(url: URL(string: burger.thumbnail)) { phase in
-                                    switch phase {
-                                        case .empty:
-                                            ProgressView()
-                                        case .success(let image):
-                                            image.resizable()
-                                                .clipShape(Circle())
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: 60, height: 60)
-                                        default:
-                                            Image(systemName: "exclamationmark.triangle")
-                                                .clipShape(Circle())
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: 60, height: 60)
-                                    }
-                                }
-                            }
-                        }
+                        BurgerListHomeView(burgers: burgers)
                     }
                 } else {
-                    Text("Chargement en cours ...")
+                    LoadingView(withText: "Chargement en cours ...")
                 }
             }
             .navigationTitle("Big Burger")
@@ -64,6 +39,45 @@ struct BurgerListView: View {
                 }
             }
         }
+    }
+}
 
+struct BurgerListHomeView: View {
+
+    @EnvironmentObject var cart: CartObject
+    var burgers: [BigBurgerModel]
+
+    var body: some View {
+        List (burgers, id:\.ref) { burger in
+            VStack {
+                HStack {
+                    VStack {
+                        ImageView(url: URL(string: burger.thumbnail), withErrorView: false)
+                        if cart.items.contains(burger) {
+                            HStack {
+                                Image(systemName: "cart.fill")
+                                Text("x \(cart.items.filter { $0 == burger }.count)")
+                            }
+                        }
+                    }
+                    VStack(alignment: .leading) {
+                        Text(burger.title)
+                            .bold()
+                            .font(.system(.title3))
+                        Text(burger.description)
+                            .italic() 
+                            .font(.system(.caption))
+                            .lineLimit(2)
+                    }
+                    Spacer()
+                    VStack {
+                        Text(burger.euroPrice + " €")
+                        Button("") {
+                            cart.items.append(burger)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
